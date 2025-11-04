@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
@@ -91,6 +92,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <Header />
       <HeroSection backgroundImage={heroBackground} slides={heroSlides} />
       <AboutSection
         title="The Art of Imagination"

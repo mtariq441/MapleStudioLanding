@@ -38,20 +38,31 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   };
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-card">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="py-24 px-6 bg-card relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-card-foreground mb-4">
+          <motion.h2 
+            className="font-serif text-5xl md:text-6xl text-card-foreground mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Featured Collection
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Discover our most beloved pieces, each one a unique expression of nature's beauty
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="relative">
@@ -64,33 +75,52 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
               {products.map((product, index) => (
                 <motion.div
                   key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex-shrink-0"
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="flex-shrink-0 group"
                   style={{ width: `calc(${100 / itemsPerView}% - ${(6 * (itemsPerView - 1)) / itemsPerView}px)` }}
                 >
-                  <Card className="overflow-hidden hover-elevate active-elevate-2 transition-all" data-testid={`product-card-${product.id}`}>
-                    <div className="aspect-square overflow-hidden">
-                      <img
+                  <Card className="overflow-hidden hover-elevate active-elevate-2 transition-all premium-card border-border/50" data-testid={`product-card-${product.id}`}>
+                    <div className="aspect-square overflow-hidden relative">
+                      <motion.img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.4 }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-serif text-2xl text-card-foreground mb-2">
+                      <motion.h3 
+                        className="font-serif text-2xl text-card-foreground mb-2"
+                        initial={{ opacity: 0.8 }}
+                        whileHover={{ opacity: 1, x: 4 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {product.title}
-                      </h3>
+                      </motion.h3>
                       <p className="text-muted-foreground mb-4">{product.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-medium text-primary">{product.price}</span>
-                        <Button
-                          className="bg-primary text-primary-foreground border border-primary-border hover-elevate active-elevate-2 rounded-full"
-                          data-testid={`button-shop-${product.id}`}
+                        <motion.span 
+                          className="text-2xl font-medium text-primary"
+                          whileHover={{ scale: 1.05 }}
                         >
-                          Shop Now
-                        </Button>
+                          {product.price}
+                        </motion.span>
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Button
+                            className="bg-primary text-primary-foreground border border-primary-border hover-elevate active-elevate-2 rounded-full glow-effect"
+                            data-testid={`button-shop-${product.id}`}
+                          >
+                            Shop Now
+                          </Button>
+                        </motion.div>
                       </div>
                     </div>
                   </Card>

@@ -32,21 +32,32 @@ export default function ContactSection() {
   };
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-card">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="py-24 px-6 bg-card relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-card-foreground mb-4">
+          <motion.h2 
+            className="font-serif text-5xl md:text-6xl text-card-foreground mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Get in Touch
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Have a question about a piece or interested in commissioning custom artwork? 
             I'd love to hear from you.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-12">

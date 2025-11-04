@@ -1,11 +1,8 @@
-import { Moon, Sun, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "./ThemeProvider";
 import { motion } from "framer-motion";
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -26,19 +23,6 @@ export default function Header() {
             data-testid="button-shopping-cart"
           >
             <ShoppingBag className="w-5 h-5" />
-          </Button>
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={toggleTheme}
-            className="rounded-full hover-elevate active-elevate-2"
-            data-testid="button-theme-toggle"
-          >
-            {theme === "light" ? (
-              <Moon className="w-5 h-5" />
-            ) : (
-              <Sun className="w-5 h-5" />
-            )}
           </Button>
         </div>
       </div>

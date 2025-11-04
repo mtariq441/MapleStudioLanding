@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ProductSlider from "@/components/ProductSlider";
 import AboutSection from "@/components/AboutSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import BiographySection from "@/components/BiographySection";
@@ -17,7 +18,7 @@ import sunset from "@assets/generated_images/Sunset_wildflower_landscape_art_f90
 import artistPhoto from "@assets/image_1762290525782.png";
 
 export default function Home() {
-  const heroSlides = [
+  const sliderProducts = [
     { id: "hummingbird", image: hummingbird, title: "Hummingbird Garden", price: "$245" },
     { id: "poppies", image: poppies, title: "Sunny Poppies", price: "$320" },
     { id: "wildflower", image: wildflower, title: "Wildflower Dreams", price: "$285" },
@@ -93,7 +94,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
-      <HeroSection backgroundImage={heroBackground} slides={heroSlides} />
+      <HeroSection backgroundImage={heroBackground} />
+      <ProductSlider products={sliderProducts} />
       <AboutSection
         title="The Art of Imagination"
         philosophy="My work is the union of imagination and reality, where nature's beauty transforms into timeless art."

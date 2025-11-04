@@ -6,15 +6,15 @@ import BiographySection from "@/components/BiographySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import heroBackground from "@assets/generated_images/Forest_landscape_watercolor_hero_e89a3148.png";
-import hummingbird from "@assets/generated_images/Hummingbird_Garden_watercolor_art_6b30a45f.png";
-import poppies from "@assets/generated_images/Sunny_Poppies_impressionist_painting_d1a4c988.png";
+import hummingbird from "@assets/image_1762290411539.png";
+import poppies from "@assets/image_1762290446320.png";
 import wildflower from "@assets/generated_images/Wildflower_butterfly_watercolor_art_f12f4ade.png";
 import cherry from "@assets/generated_images/Cherry_blossom_botanical_art_76b53e46.png";
 import peacock from "@assets/generated_images/Peacock_watercolor_painting_455c02cc.png";
 import lavender from "@assets/generated_images/Lavender_fields_botanical_art_f50da85c.png";
 import magnolia from "@assets/generated_images/Magnolia_flowers_watercolor_art_1e590680.png";
 import sunset from "@assets/generated_images/Sunset_wildflower_landscape_art_f906dc34.png";
-import artistPhoto from "@assets/generated_images/Artist_portrait_studio_photo_ea6d82fe.png";
+import artistPhoto from "@assets/image_1762290525782.png";
 
 export default function Home() {
   const heroSlides = [
